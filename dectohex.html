@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .dem1 {
+      height: 100%;
+      width: 400px;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      position: fixed;
+    }
+    .dem1 a {
+      display: block;
+      text-decoration: none;
+      font-size: 25px;
+      color: black;
+      padding: 10px;
+    }
+    .dem1 a.active {
+      background-color: #04aa6d;
+      color: white;
+    }
+    .dem1 a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+    .dem2 {
+      margin-left: 500px;
+      height: 5px;
+      text-align: center;
+      font-size: 30px;
+    }
+    .dem3 {
+      padding: 200px;
+      text-align: center;
+      font-size: 25px;
+      margin-left: 100px;
+      padding-left: 200px;
+      border-radius: 30px;
+    }
+    .dem4 {
+      text-align: center;
+      font-size: 25px;
+      margin-left: 100px;
+    }
+
+    input[type="number"] {
+      height: 50px;
+      width: 400px;
+    }
+    button[type="submit"] {
+      height: 30px;
+      width: 200px;
+      background-color: #f1f1f1;
+    }
+    button.submit {
+      font-size: 30px;
+    }
+  </style>
+  <script>
+    function calculate() {
+      var a = document.getElementById("num1").value;
+      var c = parseInt(a);
+        var b="";
+        while(a>0)
+        {
+        e=a/16;
+        y=a%16;
+        if(Math.floor(y)==10)
+        {
+        b+="A";
+        }
+        else if(Math.floor(y)==11)
+        {
+        b+="B";
+        }
+        else if(Math.floor(y)==12)
+        {
+        b+="C";
+        }
+        else if(Math.floor(y)==13)
+        {
+        b+="D";
+        }
+        else if(Math.floor(y)==14)
+        {
+        b+="E";
+        }
+        else if(Math.floor(y)==15)
+        {
+        b+="F";
+        }
+        else
+        {
+        b+=y;
+        }
+        a=Math.floor(e);
+        }
+        var w = b.split('').reverse().join('');
+      document.getElementById("result").textContent = w;
+      return false;
+    }
+  </script>
+  <body>
+    <div class="dem1">
+      <a href="dectobin.html"> Decimal to binary</a>
+      <a href="dectooct.html">Decimal to octal</a>
+      <a href="dectohex.html">Decimal to hexdecimal</a>
+      <a href="bintodec.html">Binary to decimal </a>
+      <a href="bintooct.html">Binary to octal</a>
+      <a href="bintohex.html">Binary to hexdecimal</a>
+      <a href="octtodec.html">Octal to decimal</a>
+    </div>
+    <div class="dem2">
+      <h2>Decimal to hexdecimal</h2>
+    </div>
+    <div class="dem3">
+      <form onsubmit="return calculate()">
+        <label>Enter the number :</label>
+        <br />
+        <br />
+        <input type="number" id="num1" />
+        <br />
+        <br />
+        <button type="submit" class="sumbit" id="submit">calculate</button>
+        <br />
+        <br />
+        <h1 id="result"></h1>
+      </form>
+    </div>
+  </body>
+</html>
